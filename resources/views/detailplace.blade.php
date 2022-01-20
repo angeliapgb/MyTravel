@@ -15,17 +15,19 @@
                 <h4 class="card-subtitle mb-2 text-muted">Phone</h4>
                 <h5 class="card-subtitle mb-2 text-muted">{{ $detail->phone}}</h5>
                 <p class="card-text">{{ $detail->detail}}</p>
-
-                <div class="book-form">
-                    <form action="{{ route('bookingform', $detail->name) }}" method="POST">
-                        @csrf
-                            <input type="hidden" name="place_id" value="{{ $detail->id }}">
-                            <input type="hidden" name="place_name" value="{{ $detail->name }}">
-                            <button type="submit" class="btn btn-primary">
-                                {{ __('Book Now') }}
-                            </button>
-                    </form>
-                </div>
+                
+                @if (auth()->user()->role_name == 'customer')
+                    <div class="book-form">
+                        <form action="{{ route('bookingform', $detail->name) }}" method="POST">
+                            @csrf
+                                <input type="hidden" name="place_id" value="{{ $detail->id }}">
+                                <input type="hidden" name="place_name" value="{{ $detail->name }}">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Book Now') }}
+                                </button>
+                        </form>
+                    </div>
+                @endif
             </div>
         </div>
     @endforeach

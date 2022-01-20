@@ -41,10 +41,11 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('booking')}}">Booking</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('history')}}">History<span class="sr-only">(current)</span></a>
+                            @if (auth()->user()->role_name == 'admin')
+                                <a class="nav-link" href="{{ route('addplace')}}">Add Destination</a>
+                            @else
+                                <a class="nav-link" href="{{ route('booking')}}">History</a>
+                            @endif
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('contact')}}">Contact</a>
@@ -71,7 +72,9 @@
                                 {{ Auth::user()->name }}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
+                                @if (auth()->user()->role_name == 'customer')
+                                    <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
+                                @endif
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">

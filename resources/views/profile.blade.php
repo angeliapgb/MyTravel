@@ -10,7 +10,7 @@
                 @if(Auth::user()->image)
                 <form action="{{route('profile')}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <label class="input-file">
+                    <label class="choosefile input-file">
                         <input type="file" name="image">
                         <img class="image rounded-circle" src="{{asset('/storage/image/'.Auth::user()->image)}}" alt="profile_image">
                     </label>

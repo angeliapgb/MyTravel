@@ -12,6 +12,17 @@
                     <h5 class="card-title">{{ $p->name }}</h5>
                     <p class="card-text">{{ $p->description }}</p>
                     <a href="{{ route('detailplace', $p->name) }}" class="btn btn-primary">Details</a>
+                    @if (auth()->user()->role_name == 'admin')
+                    <a href="{{ route('updateplace', $p->name) }}" class="btn btn-primary">Update</a>
+                    <form method="POST" action="{{ route('deleteplace') }}">
+                        @csrf
+                        <input type="hidden" name="place_name" value="{{ $p->name }}">
+                        <button type="submit" class="btn btn-danger">
+                            Delete
+                        </button>
+                    </form>
+                    
+                    @endif
                 </div>
             </div>
             @endforeach
