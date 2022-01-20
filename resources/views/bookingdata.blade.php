@@ -68,7 +68,7 @@
                         </div>
 
                         <div class="row mb-3 form-group{{ $errors->has('type') ? ' has-error' : '' }}">
-                            <label for="type" class="col-md-4 control-label text-md-right" style="margin-top: 1%">Gender</label>
+                            <label for="type" class="col-md-4 control-label text-md-right" style="margin-top: 1%">Type</label>
 
                             <div class="col-md-6">
                                 <select class="form-control" name="type">
@@ -84,6 +84,15 @@
                                         <strong>{{ $errors->first('type') }}</strong>
                                     </span>
                                 @endif
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Total Price') }}</label>
+
+                            <div class="col-md-6">
+                                <p>{{ $price->price }}</p>
+                                {{-- *request()->input('amount') --}}
                             </div>
                         </div>
 

@@ -5,19 +5,21 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Booking') }}</div>
+                <div class="card-header">{{ __('History') }}</div>
 
                 <div class="card-body">
                     <table class="table">
                         <thead>
                             <tr>
-                                <td>No</td>
-                                <td>Contact's Name</td>
-                                <td>Check-In</td>
-                                <td>Check-Out</td>
-                                <td>Quantity</td>
-                                <td>Type</td>
-                                <td></td>
+                                @if (!$bookings->isEmpty())
+                                    <td>No</td>
+                                    <td>Contact's Name</td>
+                                    <td>Check-In</td>
+                                    <td>Check-Out</td>
+                                    <td>Quantity</td>
+                                    <td>Type</td>
+                                    <td></td>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>

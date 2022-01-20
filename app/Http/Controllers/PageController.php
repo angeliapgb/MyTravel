@@ -42,8 +42,11 @@ class PageController extends Controller
     }
 
     public function bookingdata() {
+        $price = BookDetailModel::join('place', 'place.id', 'book_detail.place_id')
+                                ->latest('book_detail.id')
+                                ->first();
 
-        return view('bookingdata');
+        return view('bookingdata', compact('price'));
     }
 
     public function bookingform(Request $request) {
@@ -58,7 +61,7 @@ class PageController extends Controller
     public function bookingconfirmation(Request $request) {
         $book_id = BookDetailModel::latest('id')
                                     ->first();
-        
+
         BookDetailModel::where('id', $book_id->id)
                             ->update([
                                 'name' => $request->name,

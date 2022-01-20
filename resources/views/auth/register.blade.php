@@ -85,12 +85,12 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="register" class="col-md-4 col-form-label text-md-right">{{ __('Register') }}</label>
+                            <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="register" type="text" class="form-control @error('register') is-invalid @enderror" name="register" value="{{ old('register') }}" required autocomplete="register" autofocus>
+                                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
 
-                                @error('register')
+                                @error('phone')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
