@@ -10,7 +10,6 @@
                 <img src="{{ Storage::url($p->image) }}" class="card-img-top" alt="{{ $p->name }}" style="height: 20rem;">
                 <div class="card-body">
                     <h5 class="card-title">{{ $p->name }}</h5>
-                    <p class="card-text">{{ $p->duration }}</p>
                     <p class="card-text">{{ $p->description }}</p>
                     <a href="{{ route('detailplace', $p->name) }}" class="btn btn-primary">Details</a>
                 </div>

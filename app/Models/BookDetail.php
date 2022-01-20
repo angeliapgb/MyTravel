@@ -12,6 +12,11 @@ class BookDetail extends Model
     protected $table='book_detail';
     protected $guarded = [];
 
+    protected $fillable = [
+        'user_id',
+        'place_id',
+    ];
+
     public function user(){
         return $this->belongsTo(User::class);
     }

@@ -20,7 +20,8 @@ class CreatePlaceTable extends Migration
             $table->bigInteger('price');
             $table->string('image');
             $table->string('description');
-            $table->string('duration');
+            $table->string('address');
+            $table->string('phone');
 
             $table->foreign('category_id')->references('id')->on('category');
             $table->timestamps();

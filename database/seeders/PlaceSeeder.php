@@ -16,48 +16,103 @@ class PlaceSeeder extends Seeder
     public function run()
     {
         DB::table('place')->insert([
-            'category_id' => 2,
-            'name' => 'Jogja',
+            'category_id' => 1,
+            'name' => 'Anantara Seminyak',
             'price' => '800000',
-            'image' => 'image/Jogja.jpg',
-            'description' => 'Hottest place this week in MyTravel with a beautiful scenery',
-            'duration' => '21 February - 28 February 2022',
+            'image' => 'image/anantara-seminyak.jpg',
+            'description' => 'Hottest hotel this week in MyTravel with a beautiful scenery',
+            'address' => 'Jl. Bali 1 No. 12',
+            'phone' => '021123123',
         ]);
 
         DB::table('place')->insert([
-            'category_id' => 2,
-            'name' => 'Denpasar',
+            'category_id' => 1,
+            'name' => 'Amapa Puerto Vallarta',
             'price' => '750000',
-            'image' => 'image/Bali.jpg',
-            'description' => 'Hottest place this week in MyTravel with a beautiful scenery',
-            'duration' => '2 March - 10 March 2022',
+            'image' => 'image/amapa-puerto-vallarta.jpg',
+            'description' => 'Hottest hotel this week in MyTravel with a beautiful scenery',
+            'address' => 'Jl. Bali 1 No. 12',
+            'phone' => '021123123',
         ]);
 
         DB::table('place')->insert([
-            'category_id' => 2,
-            'name' => 'Kudus',
+            'category_id' => 1,
+            'name' => 'Hyatt Regency Beijing Shiyuan',
             'price' => '950000',
-            'image' => 'image/Kudus.jpg',
-            'description' => 'Hottest place this week in MyTravel with a beautiful scenery',
-            'duration' => '12 March - 20 March 2022',
+            'image' => 'image/hyatt-regency-beijing-shiyuan.jpg',
+            'description' => 'Hottest hotel this week in MyTravel with a beautiful scenery',
+            'address' => 'Jl. Bali 1 No. 12',
+            'phone' => '021123123',
         ]);
 
         DB::table('place')->insert([
-            'category_id' => 2,
-            'name' => 'Padang',
+            'category_id' => 1,
+            'name' => 'Hyatt Regency Wells Resort',
             'price' => '650000',
-            'image' => 'image/Padang.jpg',
+            'image' => 'image/hyatt-regency-indian-wells-resort.jpg',
+            'description' => 'Hottest hotel this week in MyTravel with a beautiful scenery',
+            'address' => 'Jl. Bali 1 No. 12',
+            'phone' => '021123123',
+        ]);
+
+        DB::table('place')->insert([
+            'category_id' => 1,
+            'name' => 'Joalies Indian Resort',
+            'price' => '700000',
+            'image' => 'image/joali-resort.jpg',
             'description' => 'Hottest place this week in MyTravel with a beautiful scenery',
-            'duration' => '21 February - 28 February 2022',
+            'address' => 'Jl. Bali 1 No. 12',
+            'phone' => '021123123',
         ]);
 
         DB::table('place')->insert([
             'category_id' => 2,
-            'name' => 'Balikpapan',
+            'name' => 'Apple Airline',
             'price' => '700000',
-            'image' => 'image/Balikpapan.jpg',
-            'description' => 'Hottest place this week in MyTravel with a beautiful scenery',
-            'duration' => '21 February - 28 February 2022',
+            'image' => 'image/joali-resort.jpg',
+            'description' => 'Favorite airline this week in MyTravel',
+            'address' => 'Jl. Bali 1 No. 12',
+            'phone' => '021123123',
+        ]);
+
+        DB::table('place')->insert([
+            'category_id' => 2,
+            'name' => 'Strawberry Airline',
+            'price' => '700000',
+            'image' => 'image/joali-resort.jpg',
+            'description' => 'Favorite airline this week in MyTravel',
+            'address' => 'Jl. Bali 1 No. 12',
+            'phone' => '021123123',
+        ]);
+
+        DB::table('place')->insert([
+            'category_id' => 2,
+            'name' => 'Peach Airline',
+            'price' => '700000',
+            'image' => 'image/joali-resort.jpg',
+            'description' => 'Favorite airline this week in MyTravel',
+            'address' => 'Jl. Bali 1 No. 12',
+            'phone' => '021123123',
+        ]);
+
+        DB::table('place')->insert([
+            'category_id' => 2,
+            'name' => 'Lemon Airline',
+            'price' => '700000',
+            'image' => 'image/joali-resort.jpg',
+            'description' => 'Favorite airline this week in MyTravel',
+            'address' => 'Jl. Bali 1 No. 12',
+            'phone' => '021123123',
+        ]);
+
+        DB::table('place')->insert([
+            'category_id' => 2,
+            'name' => 'Watermelon Airline',
+            'price' => '700000',
+            'image' => 'image/joali-resort.jpg',
+            'description' => 'Favorite airline this week in MyTravel',
+            'address' => 'Jl. Bali 1 No. 12',
+            'phone' => '021123123',
         ]);
     }
 }

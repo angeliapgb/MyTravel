@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Book as BookModel;
 use App\Models\BookDetail as BookDetailModel;
 use App\Models\Category as CategoryModel;
 use App\Models\Place as PlaceModel;
@@ -33,12 +32,41 @@ class PageController extends Controller
     }
 
     public function booking(Request $request) {
-        $bookings = BookDetailModel::join('users', 'users.id', 'user_id')
-                                    ->join('place', 'place.id', 'place_id')
-                                    ->join('book', 'book.id', 'book_id')
+        $bookings = BookDetailModel::where('user_id', auth()->user()->id)
+                                    ->where('name', '!=', NULL)
                                     ->get();
 
         return view('booking', compact('bookings'));
+    }
+
+    public function bookingdata() {
+
+        return view('bookingdata');
+    }
+
+    public function bookingform(Request $request) {
+        BookDetailModel::create([
+            'user_id' => auth()->user()->id,
+            'place_id' => $request->place_id,
+        ]);
+
+        return redirect('bookingdata');
+    }
+
+    public function bookingconfirmation(Request $request) {
+    $book_id = BookDetailModel::latest('id')
+                                ->first();
+    
+    BookDetailModel::where('id', $book_id->id)
+                        ->update([
+                            'name' => $request->name,
+                            'departure' => $request->departure,
+                            'arrival' => $request->arrival,
+                            'amount' => $request->amount,
+                            'type' => $request->type,
+                        ]);
+
+        return redirect('booking');
     }
 
     public function history() {
@@ -46,32 +74,14 @@ class PageController extends Controller
     }
 
     public function detailplace($name) {
-        $details = PlaceDetailModel::join('place', 'place.id', 'place_id')
-                                    ->where('place.name', $name)
-                                    ->get(['place_detail.place', 'place_detail.day', 'place_detail.detail', 'place.id', 'place.name']);
+        $details = PlaceModel::where('name', $name)
+                                    ->get();
         
-        $name = PlaceDetailModel::join('place', 'place.id', 'place_id')
-                                    ->where('place.name', $name)
-                                    ->get('place.name')
+        $name = PlaceModel::where('name', $name)
+                                    ->get('name')
                                     ->first();
 
         return view('detailplace', compact('details', 'name'));
-    }
-
-    public function book(Request $request, $name) {
-        $book_id = BookModel::latest('created_at')
-                            ->get('book.id')
-                            ->first();
-                            dd($book_id);
-        // BookModel::create([]);
-
-        BookDetailModel::create([
-            'user_id' => auth()->user()->id,
-            'place_id' => $request->place_id,
-            'book_id' => $book_id,
-        ]);
-
-        return redirect('booking');
     }
 
 }

@@ -15,13 +15,17 @@ class CreateBookDetailTable extends Migration
     {
         Schema::create('book_detail', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('place_id');
-            $table->foreignId('book_id');
+            $table->foreignId('user_id')->nullable();
+            $table->foreignId('place_id')->nullable();
+            $table->string('name')->nullable();
+            $table->date('departure')->nullable();
+            $table->date('arrival')->nullable();
+            $table->bigInteger('amount')->nullable();
+            $table->string('type')->nullable();
+            $table->string('destination')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('place_id')->references('id')->on('place');
-            $table->foreign('book_id')->references('id')->on('book');
             $table->timestamps();
         });
     }

@@ -83,6 +83,20 @@
     width: 20rem;
     border-radius: 0.5vw;
   }
+
+  .detail {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .image-place{
+    padding: 0 2rem;
+  }
+
+  .image-place img {
+    height: 30rem;  
+    width: 40rem;
+  }
   
   .grid-content {
     display: grid;
@@ -121,10 +135,6 @@
     display: flex;
     justify-content: center;
   }
-  
-  /* .footer-social li {
-    margin: auto;
-  } */
   
   .footer-social a {
     text-align: center;

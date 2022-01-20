@@ -28,7 +28,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        $place = PlaceModel::all();
+        $place = PlaceModel::join('category', 'category.id', 'category_id')
+                            ->where('category.id', 1)
+                            ->get();
         return view('home', ['place'=>$place]);
     }
 }
